@@ -1,0 +1,142 @@
+----- Directiva
+
+***** Directiva ngIf nos permite hacer un condicional en las vistas
+***** Directiva ngFor	
+
+<h2>{{titulo}} </h2> <!-- Podemos interpolar nuestra propiedad con las llaves {{}}-->
+<p>Compra las zapatillas de las mejores marcas: </p>
+	<ul>
+
+		<li *ngFor="let marca of marcas; let indice = index ">{{indice + ' - ' +marca.marca}}</li> <!-- Para acceder al índice -> let marca of marcas; let indice = index-->
+	</ul>
+<p>Las zapatillas que tenemos disponibles son: </p>
+
+	<ul>
+		<li *ngFor="let deportiva of zapatillas">
+		<span [ngStyle]="{
+				'text-decoration-line': !deportiva.stock ? 'line-through' : 'none'
+		}">
+			{{deportiva.nombre}} - <strong> {{deportiva.precio}}</strong> 
+		</span> 
+		<span *ngIf="deportiva.precio <= 80"
+					[style.background]="deportiva.precio <= 80 ? 'green' : 'transparent'" 
+					[style.color]="deportiva.precio <= 80 ? 'white' : 'black'" 
+			> ¡EN OFERTA!</span>
+		</li>
+	</ul>
+	
+	  
+    
+	
+***** Directiva ngSwitch	
+
+	<p>El color de la mayoría de nuestras bambas es: </p>
+
+	<ul [ngSwitch] ="color">
+		<li *ngSwitchCase="'yellow'">El color predominante es el <span style="background:yellow;">amarillo.</span></li>
+		<li *ngSwitchCase="'red'">El color predominante es el rojo.</li>
+		<li *ngSwitchCase="'blue'">El color predominante es el azul.</li>	
+		<li *ngSwitchCase="'orange'">El color predominante es el naranja.</li>	
+	</ul>	
+	
+
+***** Directiva ngClass	
+
+Permite asociar una clase a un evento. Hay dos maneras de utilizarlo: en forma de atributo:
+{{deportiva.nombre}} - <strong 
+
+							[class.altoPrecio]="deportiva.precio >= 80"
+							[ngClass]="{
+							'fondoRojo': deportiva.precio > 100,
+							'subrayado':deportiva.marca == 'Nike'
+						}"
+							
+
+							> {{deportiva.precio}}</strong> 
+	
+La mejor forma de añadir estilos es ir al angular.json y en styles meter nuestra plantilla.
+     "styles": [
+              "src/styles.css",
+			  "src/assets/styles.css"
+            ],
+			
+			
+			
+<input type="reset" value="ENVIAR" mat-raised-button  class="example-button" (click)="sendmail()">	
+<span class="spacerbutton"></span>
+<input type="submit" value="CANCELAR" mat-raised-button  class="example-button" (click)="cancelar()">
+
+
+colores
+
+#DCDCDC --> Tertiary
+#000000 --> PRIMARY
+#708090 --> Primary
+#696969 --> Secondary
+#E6E6FA --> Danger
+
+
+:root {
+  --ion-color-primary: #708090;
+  --ion-color-primary-rgb: 112,128,144;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255,255,255;
+  --ion-color-primary-shade: #63717f;
+  --ion-color-primary-tint: #7e8d9b;
+
+  --ion-color-secondary: #696969;
+  --ion-color-secondary-rgb: 105,105,105;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255,255,255;
+  --ion-color-secondary-shade: #5c5c5c;
+  --ion-color-secondary-tint: #787878;
+
+  --ion-color-tertiary: #DCDCDC;
+  --ion-color-tertiary-rgb: 220,220,220;
+  --ion-color-tertiary-contrast: #000000;
+  --ion-color-tertiary-contrast-rgb: 0,0,0;
+  --ion-color-tertiary-shade: #c2c2c2;
+  --ion-color-tertiary-tint: #e0e0e0;
+
+  --ion-color-success: #000000;
+  --ion-color-success-rgb: 0,0,0;
+  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-contrast-rgb: 255,255,255;
+  --ion-color-success-shade: #000000;
+  --ion-color-success-tint: #1a1a1a;
+
+  --ion-color-warning: #000000;
+  --ion-color-warning-rgb: 0,0,0;
+  --ion-color-warning-contrast: #ffffff;
+  --ion-color-warning-contrast-rgb: 255,255,255;
+  --ion-color-warning-shade: #000000;
+  --ion-color-warning-tint: #1a1a1a;
+
+  --ion-color-danger: #E6E6FA;
+  --ion-color-danger-rgb: 230,230,250;
+  --ion-color-danger-contrast: #000000;
+  --ion-color-danger-contrast-rgb: 0,0,0;
+  --ion-color-danger-shade: #cacadc;
+  --ion-color-danger-tint: #e9e9fb;
+
+  --ion-color-dark: #222428;
+  --ion-color-dark-rgb: 34,34,34;
+  --ion-color-dark-contrast: #ffffff;
+  --ion-color-dark-contrast-rgb: 255,255,255;
+  --ion-color-dark-shade: #1e2023;
+  --ion-color-dark-tint: #383a3e;
+
+  --ion-color-medium: #989aa2;
+  --ion-color-medium-rgb: 152,154,162;
+  --ion-color-medium-contrast: #ffffff;
+  --ion-color-medium-contrast-rgb: 255,255,255;
+  --ion-color-medium-shade: #86888f;
+  --ion-color-medium-tint: #a2a4ab;
+
+  --ion-color-light: #f4f5f8;
+  --ion-color-light-rgb: 244,244,244;
+  --ion-color-light-contrast: #000000;
+  --ion-color-light-contrast-rgb: 0,0,0;
+  --ion-color-light-shade: #d7d8da;
+  --ion-color-light-tint: #f5f6f9;
+}

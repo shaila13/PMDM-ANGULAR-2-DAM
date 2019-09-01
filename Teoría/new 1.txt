@@ -1,0 +1,48 @@
+Pasar por routing parámetros
+
+Vamos al app routing module --> si ponemos cod puego en el componente tiene que llevar el mismo nombre.
+
+{path: 'usuarios/:cod', component: perfiles-usuarios}
+
+Ahora vamos al componente al ts
+
+Necesitamos un servicio 
+
+export class PerfilesUsuariosComponent implements OnInit {
+//Propiedades
+  public titulo: string;
+  codigousuario:number;
+  
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private _route: ActivatedRoute, /*para pasar parametros por la routa*/
+    private _router: Router) { 
+    //Asignamos aquí
+    this.titulo= "SOTRINDER";
+     }
+
+    ngOnInit() {
+      //Cargamos aquí las cosas, dejar el constructor vacío
+	  this.codigousuario=+this.route.snapshot.paramMap.get('cod'); //devuelve un string --> para id poner un + delante del this para pasarlo a número, que es lo que me interesa xa la práctica
+    //en parentesis tenemos que poner SIEMPRE lo mismo.
+	}
+	
+	/*
+	Método back para el menu back
+	*/
+	
+	  <ul>
+  <app-usuario *ngFor="let u of listaUsuarios"
+  [miUsuario]="u" (borrar)="borrarUsuario(u.nombre)"
+  (click)="irUsuario(u)"></app-usuario>     <!-- Llama a método irUsuario en lista-usuarios.component.ts -->
+</ul>
+
+  irUsuario(usuario:Usuario){
+    let ruta='/usuarios/'+usuario.nombre+' **** '+usuario.edad;
+    this._router.navigateByUrl(ruta);
+  }
+  
+  -- DI
+  Si lo ejecutamos desde otro ordenador con el instalador el archivo tiene que estar donde está el jar.
+  
+  En un mismo scrit podemos tener dos tipos de rutas --> las mias y las rutas donde se van a extraer.

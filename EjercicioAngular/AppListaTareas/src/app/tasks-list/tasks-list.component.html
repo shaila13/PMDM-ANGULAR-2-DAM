@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+  <span>Mis Tareas</span>
+  <!-- This fills the remaining space of the current row -->
+  <span class="example-fill-remaining-space"></span>
+  <button mat-button (click)="addTask()">
+      <mat-icon>add</mat-icon>Añadir Tarea</button>
+</mat-toolbar>
+
+<mat-list>
+    <app-tasks-details  *ngFor="let t of tasks"
+      [task]="t" (deleted)="deleteTask(t)">
+    </app-tasks-details>
+</mat-list>

@@ -1,0 +1,80 @@
+---- ngTemplate - If y else en las vistas
+
+******** En home.component.html
+
+<h2>Página principal</h2>
+
+<div *ngIf="identificado; else noIdentificado"><h3>Estás identificado en la aplicación</h3>
+<button (click)="unIdentificado()">DesIdentificarse</button>
+
+</div>
+
+<ng-template #noIdentificado>
+	<p>No estás identificado en la aplicación</p>
+	<button (click)="setIdentificado()">Identificarse</button>
+
+
+</ng-template>
+
+
+
+******** En home.component.ts
+
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
+})
+export class HomeComponent implements OnInit {
+	public identificado: boolean;
+
+  constructor() { 
+  	this.identificado=false;
+  }
+
+  ngOnInit() {
+  }
+  unIdentificado(){
+	this.identificado=false;
+}
+setIdentificado(){
+	this.identificado=true;
+}
+}
+
+---- ngTemplate Then - If y else en las vistas
+
+******** En home.component.html
+
+<h2>Página principal</h2>
+
+<div *ngIf="identificado;then siIdentificado else noIdentificado">
+
+
+</div>
+
+<ng-template #siIdentificado>
+	<h3>Estás identificado en la aplicación</h3>
+	<button (click)="unIdentificado()">DesIdentificarse</button></ng-template>
+
+<ng-template #noIdentificado>
+	<p>No estás identificado en la aplicación</p>
+	<button (click)="setIdentificado()">Identificarse</button>
+
+</ng-template>
+
+/**
+En el listado de PERSONAS, se usarán clases estilos para asignar
+un BORDE ROJO GRUESO a aquellas personas cuyo nº de
+intereses sea superior a 4. Poner alguna para probarlo.
+OBLIGATORIO asignar esos estilos usando directivas de
+ANGULAR específicas para esos usos.
+
+		<span *ngIf="intereses.size >= 4"
+					[style.background]="deportiva.precio <= 80 ? 'green' : 'transparent'" 
+					[style.color]="deportiva.precio <= 80 ? 'white' : 'black'"
+
+			></span>
+*/

@@ -1,0 +1,49 @@
+Math
+Propiedades
+
+    Math.E
+    Math.LN10
+    Math.LN2
+    Math.LOG10E
+    Math.LOG2E
+    Math.PI
+    Math.SQRT1_2
+    Math.SQRT2
+
+Métodos
+
+    Math.abs()
+    Math.acos()
+    Math.acosh()
+    Math.asin()
+    Math.asinh()
+    Math.atan()
+    Math.atan2()
+    Math.atanh() [Traducir]
+    Math.cbrt() [Traducir]
+    Math.ceil()
+    Math.clz32() [Traducir]
+    Math.cos() [Traducir]
+    Math.cosh() [Traducir]
+    Math.exp()
+    Math.expm1() [Traducir]
+    Math.floor()
+    Math.fround() [Traducir]
+    Math.hypot()
+    Math.imul() [Traducir]
+    Math.log() [Traducir]
+    Math.log10()
+    Math.log1p() [Traducir]
+    Math.log2()
+    Math.max()
+    Math.min()
+    Math.pow()
+    Math.random()
+    Math.round()
+    Math.sign()
+    Math.sin()
+    Math.sinh() [Traducir]
+    Math.sqrt()
+    Math.tan() [Traducir]
+    Math.tanh()
+    Math.trunc()

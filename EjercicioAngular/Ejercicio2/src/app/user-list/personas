@@ -1,0 +1,31 @@
+{ 
+cod:1,
+nombre: ‘Inés’,
+apellidos: ‘García’,
+foto:’/ruta/img.jpg’,
+
+edad:28,
+dirección: ‘C/Rue del Percebe, 3’,
+ciudad: ‘Oviedo’,
+tfno: ‘985 23 23 23’,
+email: ‘inesgf@gmail.com’,
+hijos: true,
+sexo:femenino,
+
+intereses: [
+{ nombre: ‘fiesta’,
+descripcion:’me encanta salir de fiesta por la noche’,
+importancia: 7 
+},
+{ nombre: ‘deporte,
+descripción:’practico atletismo desde los 9 años; la especialidad de Cross’,
+importancia:10
+},
+{ nombre: ‘música’,
+Profesora: Mª Alejandra Tomás Fernández 3
+descripción:’ me encanta la música, siempre estoy escuchando música, esté donde esté’,
+importancia:’9’
+}
+],
+votos:3, 
+}

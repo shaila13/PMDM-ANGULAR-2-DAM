@@ -1,0 +1,31 @@
+----- Menú de navegación
+  
+En app.component.html --> escribimos:
+  
+  <p>{{ descripcion }} </p>
+
+  <nav>
+    
+      <a [routerLink]="['/']">Home</a>
+      &nbsp;
+      <a [routerLink]="['/zapatillas']">zapatillas</a>
+      &nbsp;
+      <a [routerLink]="['/cursos']">cursos</a>
+      &nbsp;
+      <a [routerLink]="['/videojuego']">videojuego</a>
+
+  </nav>
+
+  Para hacer que se resalte en el menú el apartado en el que estamos --> tenemos que poner la directiva [routerLinkActive]="['active']"
+  
+----- PASAR PARÁMETROS POR LA URL
+
+En app.routing.ts
+//primero crear la ruta
+{path: 'cursos', component: CursosComponent},
+	{path: 'cursos/:nombre', component: CursosComponent},
+	//Para que apellido sea opcional
+	//{path: 'cursos/:nombre', component: CursosComponent},
+	//{path: 'cursos/:nombre/:apellido', component: CursosComponent},
+	
+Ahora vamos a cursos.component.ts y -->

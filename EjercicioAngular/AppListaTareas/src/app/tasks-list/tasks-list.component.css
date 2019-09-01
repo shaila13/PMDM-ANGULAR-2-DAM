@@ -1,0 +1,34 @@
+ul{
+    list-style: none;
+    padding: 0px;
+}
+
+ul li{
+    display:block;
+    background-color: lightgreen;
+    margin:5px 0px;
+    font-size: 2em;
+}
+
+ul li:hover{
+    background-color: green;
+    cursor:pointer;
+}
+
+ul li.pending{
+    background-color:lightcoral;
+}
+
+ul li.pending:hover{
+    background-color: red;
+}
+
+.example-fill-remaining-space {
+    /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. 
+       
+       sintaxis de flex es:
+       
+       flex: grow-property shrink-property basis-property */
+    flex: 1 1 auto;  
+  }

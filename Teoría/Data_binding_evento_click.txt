@@ -1,0 +1,73 @@
+----- TWO WAY DATA-BINDING 
+No nos reconoce ngModel --> tenemos que importarlo
+En app.module :
+
+import { FormsModule } from '@angular/forms'; //Cargar este modulo y luego ir a los a imports y cargarlo
+
+@NgModule({ //decorador que nos permite configurar el módulo
+  declarations: [ //cargar componentes, pipes y directivas
+    AppComponent,
+    VideojuegoComponente,
+    ZapatillasComponente,
+    CursosComponent //DECLARAMOS nuestro NUEVO componente
+
+  ],
+  imports: [ //cargar modulos del framework de angular
+    BrowserModule,
+    AppRoutingModule
+    FormsModule
+  ],
+  providers: [], //para cargar servicios
+  bootstrap: [AppComponent] //componente principal que se va a cargar
+})
+
+
+En html:
+<p>Añadir marca: </p>
+<p><input type="text" [(ngModel)]="miMarca"></p>
+<p>{{miMarca}}</p>
+
+
+----- EVENTO CLICK
+En html:
+<button (click)="getMarca()">Buscar marca</button>
+<button (click)="addMarca()">Añadir marca</button>
+<p><strong>{{miMarca}}</strong></p>
+
+En zapatilla.componente: 
+
+	getMarca(){
+			alert(this.miMarca);
+	}
+	addMarca(){
+		//No me lo añade --> undefined???
+			this.marcas.push(this.miMarca);
+	}
+
+	//borrar
+		borrarMarca(index){
+		//delete this.marcas[index]; Me sale undefined
+		this.marcas.splice(index,1);
+
+	}
+
+----- EVENTO BLUR
+
+El evento blur es disparado cuando un elemento ha perdido su foco. La diferencia principal entre este evento y focusout es 
+que sólo el último se propaga (bubbles).
+
+<input type="text" onfocus="focusFunction()" onblur="blurFunction()">
+
+	bonBlur(){
+		console.log("Has salido del input."); 
+	}
+	
+----- EVENTO KEYUP
+
+Capturar el evento.
+
+<p><input type="text" [(ngModel)]="miMarca" (keyup.enter)="mostrarPalabra()"></p>
+
+	mostrarPalabra(){
+		alert(this.miMarca);
+	}

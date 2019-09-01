@@ -1,0 +1,67 @@
+Objeto para utilizar como molde.
+//Nombre en singular
+export class Zapatilla{
+	//truco para no poner tanto código
+	/*
+	public nombre: string;
+	public precio: number;
+	public marca: string;
+	public color: string;
+	public stock: boolean;
+
+	constructor(nombre,precio,marca,color,stock){
+		this.nombre = nombre; 
+		this.precio = precio; 
+		this.marca = marca; 
+		this.color = color; 
+		this.stock = stock; 
+	}
+*/
+
+	constructor(
+		public	nombre: string,
+		public precio: number,
+		public marca: string,
+		public color: string,
+		public stock: boolean
+		){}
+}
+
+import { Component, OnInit } from '@angular/core';
+import { Zapatilla } from '../models/zapatilla';
+
+//decorador
+@Component({
+  selector: 'zapatillas',
+  templateUrl:	'./zapatillas.componente.html',
+
+})
+
+export class ZapatillasComponente implements OnInit{
+	//Propiedades
+	public titulo: string = "Componente de zapatillas"; //No es la mejor práctica
+	public zapatillas: Array<Zapatilla>;
+	//Podemos pasar el valor de estas Propiedades a nuestra vista
+	 constructor(){
+	 	//Asignamos aquí
+	 	//this.titulo: string = "Componente de zapatillas";
+		this.zapatillas = [
+		new Zapatilla('Reebook Classic',100,'Reebook','Blue',true),
+		new Zapatilla('Nike runner MD',60,'Nike','Blanco',true),
+		new Zapatilla('Addidas Yezzy',180,'Addidas','Gris',false)];
+ }
+ ngOnInit() {//se ejecuta nada cargar el componente
+  console.log(this.zapatillas); 
+	 
+  
+	 console.log("Se ha cargado el componente: zapatillas.componente.ts");
+ }
+
+}
+
+<h2>{{titulo}} </h2> <!-- Podemos interpolar nuestra propiedad con las llaves {{}}-->
+
+	<ul
+	//para recorrer
+		<li *ngFor="let deportiva of zapatillas">{{deportiva.nombre}} - {{deportiva.precio}}<strong></strong></li>
+	</ul>

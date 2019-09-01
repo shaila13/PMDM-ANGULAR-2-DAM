@@ -1,0 +1,17 @@
+Plantilla externa del componente
+
+<h2>{{nombre_componente}}</h2>
+
+<!-- <li *ngFor = "let nombrePropio of nombres">
+//Añadimos el decorador input para indicarle lo que tiene que mostrar
+//Estamos diciendole que queremos pasarle a la propiedad nombre de esta clase (app-user-item), el valor de la variable nombre (la del 
+//for -- nombrePropio)
+	<app-user-item [nombre] ="nombrePropio"></app-user-item> 
+</li>-->
+<ul *ngFor = "let usuario of usuarios">
+
+	<app-user-item [usuario] ="usuario"
+	(borrar)="borrarUsuario(usuario.nombre)"></app-user-item> 
+</ul>
+
+<app-add-user (salidaUsuario)="aniadirUsuario($event)"></app-add-user>

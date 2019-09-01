@@ -1,0 +1,13 @@
+a{
+    float: right;
+}
+
+.example-fill-remaining-space {
+    /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. 
+       
+       sintaxis de flex es:
+       
+       flex: grow-property shrink-property basis-property */
+    flex: 1 1 auto;  
+  }

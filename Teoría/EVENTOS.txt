@@ -1,0 +1,108 @@
+ng-blur
+//Execute an expresson when the input field loses focus (onblur):
+<input ng-blur="count = count + 1" ng-init="count=0" />
+
+<h1>{{count}}</h1>
+---------------------------------------------------------------------------
+ng-change
+//Execute a function when the value of the input field changes:
+<body ng-app="myApp">
+
+<div ng-controller="myCtrl">
+    <input type="text" ng-change="myFunc()" ng-model="myValue" />
+    <p>The input field has changed {{count}} times.</p>
+</div>
+---------------------------------------------------------------------------
+ng-click
+//Increase the count variable by one, each time the button is clicked:
+<button ng-click="count = count + 1" ng-init="count=0">OK</button> 
+---------------------------------------------------------------------------
+ng-copy
+//Execute an expression when the text of the input field is being copied:
+<input ng-copy="count = count + 1" ng-init="count=0" value="Copy this text" />
+---------------------------------------------------------------------------
+ng-cut
+//Execute an expression when the text of the input field is being cut:
+<input ng-cut="count = count + 1" ng-init="count=0" value="Cut this text" />
+---------------------------------------------------------------------------
+ng-dblclick
+//Increase the count variable by one, each time the header is double-clicked:
+<h1 ng-dblclick="count = count + 1" ng-init="count=0">Welcome</h1>
+---------------------------------------------------------------------------
+ng-focus
+//Execute an expression when the input field gets focus:
+<input ng-focus="count = count + 1" ng-init="count=0" />
+
+<h1>{{count}}</h1>
+---------------------------------------------------------------------------
+ng-keydown
+//Execute an expression at every keystroke:
+<input ng-keydown="count = count + 1" ng-init="count=0" />
+
+<h1>{{count}}</h1>
+---------------------------------------------------------------------------
+ng-keypress
+//Execute an expression at every keystroke:
+<input ng-keypress="count = count + 1" ng-init="count=0" />
+
+<h1>{{count}}</h1>
+---------------------------------------------------------------------------
+ng-keyup --> (keyup.enter)="mostrarPalabra()"
+//Execute an expression at every keystroke:
+<input ng-keyup="count = count + 1" ng-init="count=0" />
+
+<h1>{{count}}</h1>
+
+mostrarPalabra(){
+	
+	//Para capturar palabras por ejemplo
+}
+---------------------------------------------------------------------------
+ng-mousedown
+//Execute an expression when a mouse click occurs:
+<div ng-mousedown="count = count + 1" ng-init="count=0">Click me!</div>
+
+<h1>{{count}}</h1>
+---------------------------------------------------------------------------
+ng-mouseenter
+//Execute an expression when the mouse cursor enters a <div> element:
+<div ng-mouseenter="count = count + 1" ng-init="count=0">Mouse over me!</div>
+
+<h1>{{count}}</h1>
+---------------------------------------------------------------------------
+ng-mouseleave
+//Execute an expression when the mouse cursor leaves a <div> element:
+<div ng-mouseleave="count = count + 1" ng-init="count=0">Mouse over me! (and mouse away from me...)</div>
+
+<h1>{{count}}</h1>
+---------------------------------------------------------------------------
+ng-mousemove
+//Execute an expression when the mouse cursor moves over a <div> element:
+<div ng-mousemove="count = count + 1" ng-init="count=0">Mouse over me!</div>
+
+<h1>{{count}}</h1>
+---------------------------------------------------------------------------
+ng-mouseover
+//Execute an expression when the mouse cursor moves over a <div> element:
+<div ng-mouseover="count = count + 1" ng-init="count=0">Mouse over me!</div>
+
+<h1>{{count}}</h1>
+---------------------------------------------------------------------------
+ng-mouseup
+//Execute an expression when a mouse click is finished:
+<div ng-mouseup="count = count + 1" ng-init="count=0">Click me!</div>
+
+<h1>{{count}}</h1>
+---------------------------------------------------------------------------
+ng-paste
+//Execute an expression when text is pasted into the the input field:
+<input ng-paste="count = count + 1" ng-init="count=0" value="Paste text here" />
+
+
+
+
+
+
+
+
+

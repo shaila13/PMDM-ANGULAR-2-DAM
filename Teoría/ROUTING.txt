@@ -1,0 +1,80 @@
+---- CONFIGURAR EL SISTEMA DE RUTAS O ROUTING EN ANGULAR
+
+Para ello hay que tener puesto en index <base href="/">
+
+Crear el archivo app.routing.ts en la carpeta app.
+
+//importar modulos del router de angular
+import { ModuleWithProviders } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
+
+//importar componentes
+import { HomeComponent } from './home/home.component'; 
+import { VideojuegoComponente } from './videojuego/videojuego.componente'; //importamos nuestro componente
+import { ZapatillasComponente } from './zapatillas/zapatillas.componente';
+import { CursosComponent } from './cursos/cursos.component';
+
+//Arrays de rutas
+const appRoutes: Routes = [
+	{path: '', component: HomeComponent},
+	{path: 'zapatillas', component: ZapatillasComponente},
+	{path: 'videojuego', component: HomeComponent},
+	{path: 'videojuego', component: VideojuegoComponente},
+	{path: 'cursos', component: CursosComponent},
+	{path: '**', component: HomeComponent} //cargar siempre el último para que no falle
+];
+
+//Exportar el módulo del router
+
+export const appRoutingProviders: any[] = [];
+export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
+
+//para que funcione hay que ir a app.module.ts e importarlo appRoutingProviders y routing
+
+
+Ir a consola y ng generate component home
+
+import { BrowserModule } from '@angular/platform-browser'; //importamos los modulos que van a hacer la aplicaicon
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { routing,appRoutingProviders } from './app.routing';
+
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component'; //importamos el componente
+import { VideojuegoComponente } from './videojuego/videojuego.componente'; //importamos nuestro componente
+import { ZapatillasComponente } from './zapatillas/zapatillas.componente';
+import { CursosComponent } from './cursos/cursos.component';//importamos nuestro NUEVO componente
+import { HomeComponent } from './home/home.component'; 
+
+
+@NgModule({ //decorador que nos permite configurar el módulo
+  declarations: [ //cargar componentes, pipes y directivas
+    AppComponent,
+    VideojuegoComponente,
+    ZapatillasComponente,
+    CursosComponent,
+    HomeComponent //DECLARAMOS nuestro NUEVO componente
+
+  ],
+  imports: [ //cargar modulos del framework de angular
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    routing //es un modulo
+  ],
+  providers: [
+  appRoutingProviders
+  ], //para cargar servicios
+  bootstrap: [AppComponent] //componente principal que se va a cargar
+
+})
+export class AppModule { } //exportamos el módulo
+
+
+usar router outlet --> cuando lo invoquemos se va a encargar de reconocer lo que hay que cargar --> vamos a app.component.html y metemos nuestra etiqueta
+--> 
+
+ <router-outlet></router-outlet>
+  <!--Dentro de la etiqueta ponemos lo que queremos que se cargue-->

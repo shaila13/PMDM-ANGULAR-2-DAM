@@ -1,0 +1,50 @@
+----- HOOKS O CICLOS DE VIDA DE LOS COMPONENTES
+Eventos que se ejecutan cuando se carga el component
+
+import { Component, OnInit, DoCheck } from '@angular/core';
+
+@Component({
+  selector: 'cursos',
+  templateUrl: './cursos.component.html',
+  styleUrls: ['./cursos.component.css']
+})
+export class CursosComponent implements OnInit, DoCheck {
+
+  constructor() { }
+
+  ngOnInit() {//se ejecuta nada cargar el componente
+  console.log("Ejecutando OnInit"); 
+	 
+  }
+  ngDoCheck() {//se ejecuta nada cargar el componente
+  console.log("Ejecutando DoCheck"); 
+  
+  }
+}
+
+---- Hay que declararlo en el import y luego implementarlo y crear ngOnInit() en el constructor
+
+<b<button (click)="cambiarTitulo()">Cambiar titulo</button> <!-- Para llamar a un evanto en angular se utilizan los paréntesis-->
+
+Otro hook importante es --> OnDestroy --> sirve para que se ejecute algo antes de destruir la isntancia de un componente
+
+Vamos a --> app.component.html
+ <button (click)="ocultarVideojuegos()">Ocultar videojuegos</button> <!-- Para llamar a un evanto en angular se utilizan los paréntesis-->
+ <videojuego *ngIf=""> </videojuego>
+ 
+ Vamos a --> app.component
+ import { Component } from '@angular/core';
+
+//decorador
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+ public title = 'Master de Javascript y Angular';
+ public mostar_videojuegos: boolean = true;
+ ocultarVideojuegos(){
+ 		this.mostar_videojuegos=false;
+ 	}
+}

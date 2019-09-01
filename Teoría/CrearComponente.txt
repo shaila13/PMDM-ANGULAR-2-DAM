@@ -1,0 +1,111 @@
+--Como crear un componente --> por consola, crear una carpeta con todos los componentes...
+
+1º) Creando una carpeta por componente dentro de app --> videojuego -->  videojuego.componente.ts
+
+import { Component } from '@angular/core';
+
+//decorador
+@Component({
+  selector: 'videojuego',
+  template: //podemos definir una plantilla en línea (template) o en un archivo externo (templateUrl); 
+  //OJITO A LO TOCAWEBS QUE ES, aquí string es con la tilde
+				`
+  		<h2>Componente de Videojuegos </h2>
+				 <ul>
+				  <li>GTA</li>
+				  <li>Prince of Persian</li>
+				  <li>Tekken</li>
+				`
+})
+//OTRA MANERA MEJOR DE HACERLO
+//decorador
+@Component({
+  selector: 'videojuego',
+  templateUrl:	'./videojuego.componente.html',
+})
+//No poner ; porque es un decorador.
+
+export class VideojuegoComponent {
+ //public title = 'Master de Javascript y Angular'; DEFINIMOS UN CONSTRUCTOR
+ 	//Propiedades
+	public titulo: string;
+	public listado: string;
+	//Podemos pasar el valor de estas Propiedades a nuestra vista
+	 constructor(){
+	 	//Asignamos aquí
+	 	this.titulo= "Componente de Videojuegos";
+	 	this.listado= "Listado de Videojuegos más populares";
+ constructor(){
+	 console.log("Se ha cargado el componente: videojuego.componente.ts"); //No nos aparece en la apli porque no lo hemos llamado desde ningún sitio
+	 //Para ello vamos al html de app y utilizamos su selector, es una etiqueta, con el nombre de su selector --> selector: 'videojuego',**
+ }
+}
+//** <!--The content below is only a placeholder and can be replaced.-->
+/*<div style="text-align:center">
+  <h1>
+  <h2>{{titulo}} </h2>
+    Bienvenido al {{ title }}!
+  </h1>
+  <p>Vamos a aprender Angular juntos: </p>
+  <videojuego> </videojuego>
+  
+  </div>*/
+
+
+
+<router-outlet></router-outlet>
+
+2º) Para utilizar el componente tenemos que cargarlo y darlo de alta en nuestra aplicación en el módulo principal app//Creamos una vista --> videojuego.componente.html
+Como hemos puesto export class, en el módulo podemos importarlo.
+
+import { BrowserModule } from '@angular/platform-browser'; //importamos los modulos que van a hacer la aplicaicon
+import { NgModule } from '@angular/core';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component'; //importamos el componente
+import { VideojuegoComponent } from './videojuego/videojuego.componente'; //importamos nuestro componente
+
+3º) Vamos a declarations y lo declaramos
+
+@NgModule({ //decorador que nos permite configurar el módulo
+  declarations: [ //cargar componentes, pipes y directivas
+    AppComponent
+	VideojuegoComponent
+  ],
+  imports: [ //cargar modulos del framework de angular
+    BrowserModule,
+    AppRoutingModule
+  ],
+  providers: [], //para cargar servicios
+  bootstrap: [AppComponent] //componente principal que se va a cargar
+})
+
+
+---- CREACIÓN DE VARIOS COMPONENTES
+
+Mismo procedimiento anterior
+
+---- CREACIÓN DE COMPONENETES POR CONSOLA
+
+Scaffold  --->	Usage
+Component --->	ng g component my-new-component
+Directive --->	ng g directive my-new-directive
+Pipe 	  --->	ng g pipe my-new-pipe
+Service   --->  ng g service my-new-service
+Class 	  --->	ng g class my-new-class
+Guard 	  --->	ng g guard my-new-guard
+Interface --->	ng g interface my-new-interface
+Enum 	  --->	ng g enum my-new-enum
+Module 	  --->	ng g module my-module
+Proyecto  --->	ng new nombre-proyecto
+
+Debemos ir a la carpeta donde tenemos el proyecto creado --> 
+
+cd C:\Users\Shaila\Documents\DAM\2 DAM\PMDM\ANGULAR\angularCurso
+
+Lanzamos el comando --> ng generate component cursos
+
+Nos lo crea todo directamente --> vamos al html de la carpeta app y ponemos --> cursos en una etiqueta para crear nuestro componente
+--> NOS VA A DAR UN ERROR ya que en nuestro component tenemos en el selector app-cursos y nuestro <cursos> no lo lleva.
+
+https://material.angular.io/components/grid-list/overview Para el grid

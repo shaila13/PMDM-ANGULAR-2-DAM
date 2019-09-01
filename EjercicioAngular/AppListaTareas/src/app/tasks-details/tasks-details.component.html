@@ -1,0 +1,19 @@
+<mat-list-item>
+    <!-- <mat-icon> es para un icono normal .
+          Si queremos indicar que está dentro de un mat-list-item hay que poner el atributo
+          matListIcon como se muestra abajo.
+          Ver la documentación del componente LIST de Angular Material para más información 
+        -->
+    <mat-icon matListIcon  *ngIf="!task.pending" style="color:green;">done</mat-icon>
+    <mat-icon matListIcon  *ngIf="task.pending" style="color:red;">error_outline</mat-icon>
+    
+    <span>{{task.title}}</span>
+    <span class="example-fill-remaining-space"></span>
+    <button *ngIf="task.pending" mat-icon-button (click)="completeTask()">
+        <mat-icon style="color:green">check_circle</mat-icon>
+    </button>
+    <button mat-icon-button (click)="deleteTask()">
+        <mat-icon style="color:red">cancel</mat-icon>
+    </button>
+</mat-list-item>
+

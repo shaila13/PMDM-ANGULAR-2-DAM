@@ -1,0 +1,15 @@
+
+<hr>
+<form>
+<label for="nombre">Nombre: </label>
+<input type="text" id="nombre" name="fnombre" [(ngModel)]="nombreUsuario">
+
+<label for="apellidos">Apellidos: </label>
+<input type="text" id="apellidos" name="fapellidos" [(ngModel)]="apellidoUsuario">
+
+<label for="edad">Edad: </label>
+<input type="text" id="edad" name="fedad"  [(ngModel)]="edadUsuario">
+
+<input id="boton"  type="button" value="AÑADIR" (click)="addUsuario()">
+
+</form>
